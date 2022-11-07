@@ -29,6 +29,8 @@
 /config/master.key
 /config/database.yml
 
+.idea
+
 /public/packs
 /public/packs-test
 /node_modules
