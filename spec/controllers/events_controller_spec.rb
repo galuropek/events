@@ -33,7 +33,7 @@ RSpec.describe EventsController, type: :controller do
     before { get :new }
 
     it 'assigned a new Event to @event' do
-      expect(assigns(:event)).to be_a_new(Event)
+      expect(assigns(:event)).to be_a_new Event
     end
 
     it 'renders new view' do

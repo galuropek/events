@@ -1,7 +1,9 @@
 FactoryBot.define do
-  sequence(:title) { |n| "#{self} ##{n} title"}
-
   factory :room do
-    title
+    title { 'MyString' }
+
+    trait :invalid do
+      title { nil }
+    end
   end
 end
