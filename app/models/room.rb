@@ -1,3 +1,3 @@
 class Room < ApplicationRecord
-  validates :title, presence: true, length: { minimum: 4 }
+  validates :title, :description, presence: true, length: { minimum: 4 }
 end
