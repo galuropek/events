@@ -1,0 +1,4 @@
+.room-container
+  h2= "#{Room.model_name.human}"
+  h4= "#{Room.human_attribute_name :title}: ".downcase + @room.title
+  p= "#{Room.human_attribute_name :description}: ".downcase + @room.description

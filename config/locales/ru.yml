@@ -1,4 +1,16 @@
 ru:
+  rooms:
+    create:
+      success: Ваша комната успешно создана.
+
+  activerecord:
+    models:
+      room: Комната
+    attributes:
+      room:
+        title: Заголовок
+        description: Описание
+
   events:
     index:
       title: Добро пожаловать в мир событий!
