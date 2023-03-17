@@ -1,0 +1,5 @@
+- if resource.present? && resource.errors.present?
+  = content_tag :div, class: 'alert alert-danger' do
+    ul
+      - resource.errors.full_messages.each do |msg|
+        li= msg

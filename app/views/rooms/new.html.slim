@@ -1,0 +1,11 @@
+= render 'shared/errors', resource: @room
+
+= form_with model: @room do |f|
+
+  p= f.label :title
+  p= f.text_field :title
+
+  p= f.label :description
+  p= f.text_area :description
+
+  = f.button type: 'submit', class: 'create create-room'

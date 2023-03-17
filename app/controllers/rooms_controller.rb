@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
     @room = Room.create(room_params)
 
     if @room.save
-      redirect_to @room
+      redirect_to @room, success: t('.success')
     else
       render :new
     end
@@ -45,6 +45,6 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:title)
+    params.require(:room).permit(:title, :description)
   end
 end
