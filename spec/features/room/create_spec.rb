@@ -17,5 +17,14 @@ feature 'User can create new room', %q{
     expect(page).to have_content 'Desc'
   end
 
-  scenario 'User creates a new room with invalid data'
+  scenario 'User creates a new room with invalid data' do
+    visit new_room_path
+
+    fill_in Room.human_attribute_name(:title), with: 'New'
+    find('button.create-room').click
+
+    expect(page).to have_content invalid_attr(Room.human_attribute_name(:title), 'too_short.many', count: 4)
+    expect(page).to have_content invalid_attr(Room.human_attribute_name(:description), 'blank')
+    expect(page).to have_content invalid_attr(Room.human_attribute_name(:description), 'too_short.many', count: 4)
+  end
 end
