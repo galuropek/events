@@ -1,11 +1,22 @@
 ru:
   rooms:
+    index:
+      new: Создать новую комнату
     create:
       success: Ваша комната успешно создана.
 
   activerecord:
     models:
-      room: Комната
+      room:
+        zero: Комнат
+        one: Комната
+        few: Комнат
+        other: Комнаты
+      event:
+        zero: Событий
+        one: Событие
+        few: Событий
+        other: События
     attributes:
       room:
         title: Заголовок
@@ -14,3 +25,6 @@ ru:
   events:
     index:
       title: Добро пожаловать в мир событий!
+
+  headers:
+    home: На главную
