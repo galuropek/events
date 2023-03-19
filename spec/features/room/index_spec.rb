@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User can view a list of created room', %q{
+feature 'User can view a list of available rooms', %q{
   In order to view all available rooms
   I'd like to be able to visit page with rooms list
 } do
