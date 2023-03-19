@@ -96,11 +96,14 @@ RSpec.describe RoomsController, type: :controller do
     end
 
     context 'with invalid attributes' do
-      before { patch :update, params: { id: room, room: attributes_for(:room, :invalid) } }
+      before do
+        @title_before_patch = room.title
+        patch :update, params: { id: room, room: attributes_for(:room, :invalid) }
+      end
 
       it 'does not change room' do
         room.reload
-        expect(room.title).to eq 'MyString'
+        expect(room.title).to eq @title_before_patch
       end
 
       it 're-renders edit view' do
