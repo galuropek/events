@@ -5,9 +5,12 @@ feature 'User can create new room', %q{
   I'd like to be able to create rooms
 } do
 
-  scenario 'User creates a new room' do
-    visit new_room_path
+  background do
+    visit rooms_path
+    click_on I18n.t 'rooms.index.new'
+  end
 
+  scenario 'User creates a new room' do
     fill_in Room.human_attribute_name(:title), with: 'New Room'
     fill_in Room.human_attribute_name(:description), with: 'Desc'
     find('button.create-room').click
@@ -18,8 +21,6 @@ feature 'User can create new room', %q{
   end
 
   scenario 'User creates a new room with invalid data' do
-    visit new_room_path
-
     fill_in Room.human_attribute_name(:title), with: 'New'
     find('button.create-room').click
 
