@@ -4,6 +4,9 @@ ru:
       new: Создать новую комнату
     create:
       success: Ваша комната успешно создана.
+  events:
+    index:
+      new: Создать новое событие
 
   activerecord:
     models:
@@ -21,10 +24,6 @@ ru:
       room:
         title: Заголовок
         description: Описание
-
-  events:
-    index:
-      title: Добро пожаловать в мир событий!
 
   headers:
     home: На главную
