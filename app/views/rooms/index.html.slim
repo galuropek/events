@@ -21,6 +21,8 @@
             h5.card-title= room.title
             - if (description = room.description.to_s).length > 50
               p.card-text= "#{description[0..50]}..."
+            - elsif description.length.zero?
+              p.card-text= "-"
             - else
               p.card-text= description
             .d-flex.justify-content-between.align-items-center
