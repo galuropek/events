@@ -1,0 +1,4 @@
+.event-container
+  h2= "#{Event.model_name.human}"
+  h4= "#{Event.human_attribute_name :title}: ".downcase + @event.title
+  p= "#{Event.human_attribute_name :description}: ".downcase + @event.description
