@@ -1,0 +1,13 @@
+= render 'shared/errors', resource: @event
+
+.row.justify-content-md-center
+  = form_with model: @event, class: 'col-6' do |f|
+    .div.mb-3
+      = f.label :title, class: 'form-label'
+      = f.text_field :title, class: 'form-control'
+
+    .div.mb-3
+      = f.label :description, class: 'form-label'
+      = f.text_area :description, class: 'form-control'
+
+    = f.button type: 'submit', class: 'create create-event btn btn-outline-dark'

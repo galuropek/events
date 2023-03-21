@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-      redirect_to @event
+      redirect_to @event, success: t('.success')
     else
       render :new
     end
