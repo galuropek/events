@@ -5,10 +5,12 @@ feature 'User can create new event', %q{
   I'd like to be able to create events
 } do
 
-  scenario 'User creates a new event' do
+  background do
     visit events_path
     click_on I18n.t 'events.index.new'
+  end
 
+  scenario 'User creates a new event' do
     fill_in Event.human_attribute_name(:title), with: 'New Event'
     fill_in Event.human_attribute_name(:description), with: 'New description'
     find('button.create-event').click
@@ -18,5 +20,13 @@ feature 'User can create new event', %q{
     expect(page).to have_content 'New description'
   end
 
-  scenario 'User creates a new event with invalid data'
+  scenario 'User creates a new event with invalid data' do
+    fill_in Event.human_attribute_name(:title), with: 'New'
+    fill_in Event.human_attribute_name(:description), with: ''
+    find('button.create-event').click
+
+    expect(page).to have_content invalid_attr(Event.human_attribute_name(:title), 'too_short.many', count: 4)
+    expect(page).to have_content invalid_attr(Event.human_attribute_name(:description), 'blank')
+    expect(page).to have_content invalid_attr(Event.human_attribute_name(:description), 'too_short.many', count: 4)
+  end
 end
