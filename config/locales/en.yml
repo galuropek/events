@@ -4,6 +4,9 @@ en:
       new: Create a new room
     create:
       success: Your room successfully created.
+  events:
+    index:
+      new: Create a new event
 
   activerecord:
     models:
@@ -21,10 +24,6 @@ en:
       room:
         title: Title
         description: Description
-
-  events:
-    index:
-      title: Welcome to the events world!
 
   headers:
     home: Home

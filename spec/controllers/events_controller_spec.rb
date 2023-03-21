@@ -98,12 +98,16 @@ RSpec.describe EventsController, type: :controller do
     end
 
     context 'with invalid attributes' do
-      before { patch :update, params: { id: event, event: attributes_for(:event, :invalid) } }
+      before do
+        @title_before_patch = event.title
+        @descr_before_patch = event.description
+        patch :update, params: { id: event, event: attributes_for(:event, :invalid) }
+      end
 
       it 'does not change event' do
         event.reload
-        expect(event.title).to eq 'MyString'
-        expect(event.description).to eq 'MyText'
+        expect(event.title).to eq @title_before_patch
+        expect(event.description).to eq @descr_before_patch
       end
 
       it 're-renders edit view' do

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :event do
-    title { 'MyString' }
-    description { 'MyText' }
+    sequence(:title) { |n| "Event ##{n} title" }
+    sequence(:description) { |n| "Event ##{n} description" }
 
     trait :invalid do
       title { nil }
